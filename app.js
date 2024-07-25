@@ -10,14 +10,15 @@ const cors = require('cors');
 
 var app = express();
 
+app.use(cors({
+  origin: '*', // Permitir todos los orígenes
+  methods: '*', // Permitir todos los métodos HTTP
+  allowedHeaders: '*', // Permitir todos los encabezados
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(cors({
-  origin: 'https://calm-cliff-0dc42120f.5.azurestaticapps.net',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
 
 app.use(logger('dev'));
 app.use(express.json());

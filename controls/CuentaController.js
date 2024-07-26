@@ -50,7 +50,6 @@ class CuentaController {
                         };
                         require('dotenv').config();
                         const llave = process.env.KEY_SQ;
-                        console.log('llave >>> ', llave)
                         const token = jwt.sign(tokenData, llave, {
                             expiresIn: '12h'
                         });
